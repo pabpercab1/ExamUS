@@ -13,17 +13,22 @@ struct EditExamView: View {
     
     var body: some View {
         Form{
-            TextField("Details", text: $exam.details, axis: .vertical)
-            DatePicker("Date", selection: $exam.date)
+            Section("Basic info") {
+                TextField("Details", text: $exam.details, axis: .vertical)
+                DatePicker("Date", selection: $exam.date)
+            }
             
-            Section("Priority") {
-                Picker("Priority", selection: $exam.session){
+            Section("Session") {
+                Picker("Session", selection: $exam.session){
                     Text("A").tag(1)
                     Text("B").tag(2)
                     Text("C").tag(3)
                     Text("D").tag(4)
                 }
                 .pickerStyle(.segmented)
+            }
+            Section("Course selection") {
+                TextField("Course", text: $exam.course)
             }
         }
         .navigationTitle($exam.name)
