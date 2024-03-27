@@ -6,19 +6,23 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 class Exam {
     var id: String
     var name: String
-    var description: String
+    var course: String
+    var details: String
     var date: Date
-    var priority: Int
+    var session: Int
     
-    init(name: String, description: String, date: Date, priority: Int) {
+    init(name: String = "", details: String = "", course: String = "", date: Date = .now, session: Int = 2) {
         self.id = UUID().uuidString
         self.name = name
-        self.description = description
+        self.details = details
+        self.course = course
         self.date = date
-        self.priority = priority
+        self.session = session
     }
 }
