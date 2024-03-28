@@ -10,29 +10,48 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var exams: [Exam]
+    
+    @State private var path = [Exam]()
+    @State private var sortOrder = SortDescriptor(\Exam.date)
+    @State private var searchText = ""
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(exams) {exam in
-                    NavigationLink(value: exam) {
-                        VStack(alignment: .leading) {
-                            Text(exam.name)
-                                .font(.headline)
-                            Text(exam.course)
-                            Text(exam.date.formatted(date: .long, time: .shortened))
+        TabView {
+            NavigationStack(path: $path) {
+                ExamListView(sort: sortOrder, search: searchText)
+                    .navigationTitle("ExamUS")
+                    .navigationDestination(for: Exam.self, destination: EditExamView.init)
+                    .searchable(text: $searchText)
+                    .toolbar{
+                        Button("Add sample", action: addSamples)
+                        Button("Add", systemImage: "plus", action: addExam)
+                        Menu {
+                            Picker("Sort", selection: $sortOrder) {
+                                Label("Name", systemImage: "abc").tag(SortDescriptor(\Exam.name))
+                                Label("Date", systemImage: "calendar").tag(SortDescriptor(\Exam.date))
+                                Label("Course", systemImage: "book").tag(SortDescriptor(\Exam.course))
+                            }
+                            .pickerStyle(.inline)
+                        } label: {
+                            Label("Sort", systemImage: "arrow.up.arrow.down.circle")
                         }
                     }
-                }
-                .onDelete(perform: deleteExams)
             }
-            .navigationTitle("ExamUS")
-            .navigationDestination(for: Exam.self, destination: EditExamView.init)
-            .toolbar{
-                Button("Add sample", action: addSamples)
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            Text("test")
+            .tabItem {
+                Image(systemName: "book")
+                Text("Courses")
             }
         }
+    }
+    func addExam(){
+        let exam = Exam(name:"New exam")
+        modelContext.insert(exam)
+        path = [exam]
     }
     func addSamples(){
         let cbd = Exam(name: "Primer parcial", course: "CBD")
@@ -42,12 +61,6 @@ struct ContentView: View {
         modelContext.insert(cbd)
         modelContext.insert(ispp)
         modelContext.insert(dp)
-    }
-    func deleteExams(_ indexSet: IndexSet){
-        for index in indexSet {
-            let exam = exams[index]
-            modelContext.delete(exam)
-        }
     }
 }
 

@@ -16,8 +16,9 @@ class Exam {
     var details: String
     var date: Date
     var session: Int
+    @Relationship(deleteRule: .cascade) var topics = [Topic]()
     
-    init(name: String = "", details: String = "", course: String = "", date: Date = .now, session: Int = 2) {
+    init(name: String = "", details: String = "", course: String = "", date: Date = .now, session: Int = 1) {
         self.id = UUID().uuidString
         self.name = name
         self.details = details
