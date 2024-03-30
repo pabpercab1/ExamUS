@@ -7,18 +7,17 @@
 
 import Foundation
 import SwiftData
-import UIKit
 
 @Model
-class Course{
+class Course {
     var name: String
     var details: String
     var year: Int
     var professor: String
-    var color: UIColor
+    var color: String
+    @Relationship(deleteRule: .cascade) var exams = [Exam]()
     
-    
-    init(name: String, details: String, year: Int = Calendar.current.component(.year, from: Date()), professor: String, color: UIColor = .green) {
+    init(name: String, details: String = "", year: Int = Calendar.current.component(.year, from: Date()), professor: String = "", color: String = "green") {
         self.name = name
         self.details = details
         self.year = year
@@ -26,3 +25,4 @@ class Course{
         self.color = color
     }
 }
+

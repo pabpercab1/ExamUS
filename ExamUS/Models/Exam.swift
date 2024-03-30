@@ -10,16 +10,14 @@ import SwiftData
 
 @Model
 class Exam {
-    var id: String
     var name: String
-    var course: String
     var details: String
     var date: Date
     var session: Int
+    @Relationship var course: Course?
     @Relationship(deleteRule: .cascade) var topics = [Topic]()
     
-    init(name: String = "", details: String = "", course: String = "", date: Date = .now, session: Int = 1) {
-        self.id = UUID().uuidString
+    init(name: String = "", details: String = "", course: Course? = nil, date: Date = .now, session: Int = 1) {
         self.name = name
         self.details = details
         self.course = course

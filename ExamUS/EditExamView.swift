@@ -10,8 +10,12 @@ import SwiftData
 
 struct EditExamView: View {
     @Bindable var exam: Exam
+    
+    @Query(sort: [SortDescriptor(\Course.name)]) var courses: [Course]
+    
     @State private var newTopic = ""
     @State private var selectedTopicToDelete: Topic?
+    
     
     var body: some View {
         Form{
@@ -28,19 +32,38 @@ struct EditExamView: View {
                     Text("Convocatoria extraordinaria").tag(4)
                 }
                 .pickerStyle(.menu)
-                TextField("Course", text: $exam.course)
+                if courses == []{
+                    HStack{
+                        Text("Course")
+                        Spacer()
+                        Image(systemName: "exclamationmark.triangle")
+                            .foregroundColor(.red)
+                        Text("Create first a course in the other tab")
+                            .foregroundColor(.red)
+                    }
+                        
+                } else {
+                    Picker("Course", selection: $exam.course) {
+                        if exam.course == nil{ Text("Select a course")}
+                        ForEach(courses) { course in
+                            Text(course.name).tag(course as Course?)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                }
             }
-            Section("Topics"){
-                ForEach(exam.topics) { topic in
+            Section("\(exam.topics.count) Topics"){
+                ForEach(exam.topics.sorted(by: { $0.number < $1.number })) { topic in
                     HStack {
                         Text(topic.name)
                         Spacer()
-                        Button(action: {showAlert(for: topic)}) {
-                            Image(systemName: "trash.circle")
+                        Button(action: { showAlert(for: topic) }) {
+                            Image(systemName: "trash")
                                 .accentColor(.red)
                         }
                     }
                 }
+                .onDelete(perform: deleteTopicQuick)
                 HStack{
                     TextField("Add topic in \(exam.name)", text: $newTopic)
                     Button(action: addTopic) {
@@ -62,11 +85,11 @@ struct EditExamView: View {
         .navigationTitle($exam.name)
         .navigationBarTitleDisplayMode(.inline)
     }
-    func addTopic(){
-        guard newTopic.isEmpty == false else { return }
+    func addTopic() {
+        guard !newTopic.isEmpty else { return }
         
         withAnimation {
-            let topic = Topic(name: newTopic, details: "")
+            let topic = Topic(name: newTopic, number: exam.topics.count, details: "")
             exam.topics.append(topic)
             newTopic = ""
         }
@@ -81,16 +104,21 @@ struct EditExamView: View {
             }
         }
     }
+    func deleteTopicQuick(_ indexSet: IndexSet){
+        exam.topics.remove(atOffsets: indexSet)
+    }
 }
 
 #Preview {
     do{
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Exam.self, configurations: config)
-        let example = Exam(name: "Example", details: "Detail example", course: "CBD")
+        let example = Exam(name: "Example", details: "Detail example", course: Course(name: "Example", details: "Example", professor: "Example"))
+        
         return EditExamView(exam: example)
             .modelContainer(container)
     } catch {
         fatalError("Fail to create model container")
     }
 }
+

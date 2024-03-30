@@ -11,7 +11,7 @@ import SwiftData
 struct ExamListView: View {
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\Exam.date),
-                  SortDescriptor(\Exam.course)]) var exams: [Exam]
+                  SortDescriptor(\Exam.course?.name)]) var exams: [Exam]
     
     var body: some View {
         List {
@@ -20,7 +20,12 @@ struct ExamListView: View {
                     VStack(alignment: .leading) {
                         Text(exam.name)
                             .font(.headline)
-                        Text(exam.course)
+                        HStack{
+                            Image(systemName: "circle")
+                                .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
+                            Text(exam.course?.name ?? "No course assigned")
+                                .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
+                        }
                         Text(exam.date.formatted(date: .long, time: .shortened))
                     }
                 }
@@ -43,6 +48,25 @@ struct ExamListView: View {
         for index in indexSet {
             let exam = exams[index]
             modelContext.delete(exam)
+        }
+    }
+    func convertColor(color: String) -> Color {
+        switch color {
+            case "red": return Color.red
+            case "green": return Color.green
+            case "blue": return Color.blue
+            case "yellow": return Color.yellow
+            case "orange": return Color.orange
+            case "purple": return Color.purple
+            case "pink": return Color.pink
+            case "cyan": return Color.cyan
+            case "mint": return Color.mint
+            case "teal": return Color.teal
+            case "indigo": return Color.indigo
+            case "brown": return Color.brown
+            case "gray": return Color.gray
+            case "black": return Color.black
+            default: return Color.clear // Default color if no match is found
         }
     }
 }
