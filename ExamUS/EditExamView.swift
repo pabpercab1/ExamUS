@@ -66,6 +66,9 @@ struct EditExamView: View {
                 .onDelete(perform: deleteTopicQuick)
                 HStack{
                     TextField("Add topic in \(exam.name)", text: $newTopic)
+                        .onSubmit {
+                            addTopic()
+                        }
                     Button(action: addTopic) {
                             Image(systemName: "plus")
                         }

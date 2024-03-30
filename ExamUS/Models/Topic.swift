@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Topic: Identifiable, Comparable {
+class Topic: Identifiable {
     var id: UUID
     var number: Int
     var name: String
@@ -21,7 +21,4 @@ class Topic: Identifiable, Comparable {
         self.number = number
         self.details = details
     }
-    static func < (lhs: Topic, rhs: Topic) -> Bool {
-            return lhs.number < rhs.number
-        }
 }
