@@ -14,11 +14,13 @@ class Topic: Identifiable {
     var number: Int
     var name: String
     var details: String
+    var check: Bool
     
     init(name: String, number: Int, details: String) {
         self.id = UUID()
         self.name = name
         self.number = number
         self.details = details
+        self.check = false
     }
 }

@@ -17,26 +17,35 @@ struct CourseListView: View {
 
     var body: some View {
         List {
-            ForEach(courses) { course in
-                NavigationLink(value: course) {
-                    HStack{
-                        VStack(alignment: .leading) {
-                            Text(course.name)
-                                .font(.headline)
-                            Text(course.year.formatted().replacingOccurrences(of: ".", with: ""))
-                            Text(course.professor)
+            if (courses.isEmpty){
+                ContentUnavailableView{
+                    Image(systemName: "book")
+                        .font(.largeTitle)
+                } description: {
+                    Text("There is not courses to show. Create the course first, to then add an exam.")
+                }
+            } else {
+                ForEach(courses) { course in
+                    NavigationLink(value: course) {
+                        HStack{
+                            VStack(alignment: .leading) {
+                                Text(course.name)
+                                    .font(.headline)
+                                Text(course.year.formatted().replacingOccurrences(of: ".", with: ""))
+                                //Text(course.professor)
+                            }
+                            Spacer()
+                            Image(systemName: "circle.fill")
+                                .foregroundStyle(convertColor(color: course.color))
                         }
-                        Spacer()
-                        Image(systemName: "circle.fill")
-                            .foregroundStyle(convertColor(color: course.color))
                     }
                 }
+                .onDelete(perform: deleteCourses)
             }
-            .onDelete(perform: deleteCourses)
         }
-        .alert(isPresented: $showingAlertCourse) {
-            buildAlert()
-        }
+                .alert(isPresented: $showingAlertCourse) {
+                    buildAlert()
+                }
     }
     init(sort: SortDescriptor<Course>, search: String){
 

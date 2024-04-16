@@ -9,28 +9,40 @@ import SwiftUI
 import SwiftData
 
 struct ExamListView: View {
+    
     @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\Exam.date),
                   SortDescriptor(\Exam.course?.name)]) var exams: [Exam]
     
     var body: some View {
         List {
-            ForEach(exams) {exam in
-                NavigationLink(value: exam) {
-                    VStack(alignment: .leading) {
-                        Text(exam.name)
-                            .font(.headline)
-                        HStack{
-                            Image(systemName: "circle")
-                                .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
-                            Text(exam.course?.name ?? "No course assigned")
-                                .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
+            if (exams.isEmpty){
+                ContentUnavailableView{
+                    Image(systemName: "book.pages")
+                        .font(.largeTitle)
+                } description: {
+                    Text("There is not exams to show. Make sure that you have created a course first.")
+                }
+            } else {
+                ForEach(exams) {exam in
+                    NavigationLink(value: exam) {
+                        VStack(alignment: .leading) {
+                            Text(exam.name)
+                                .font(.headline)
+                            HStack{
+                                Image(systemName: "circle")
+                                    .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
+                                Text(exam.course?.name ?? "No course assigned")
+                                    .foregroundStyle(convertColor(color: exam.course?.color ?? "black"))
+                            }
+                            Text(exam.date.formatted(date: .long, time: .shortened))
+                            Text("\(exam.topicsToReviewCount) topics to do & \(exam.reviewedTopicsCount) already done")
+                                .foregroundStyle(.gray)
                         }
-                        Text(exam.date.formatted(date: .long, time: .shortened))
                     }
                 }
+                .onDelete(perform: deleteExams)
             }
-            .onDelete(perform: deleteExams)
         }
     }
     init(sort: SortDescriptor<Exam>, search: String){
@@ -73,4 +85,14 @@ struct ExamListView: View {
 
 #Preview {
     ExamListView(sort: SortDescriptor(\Exam.date), search: "")
+}
+
+extension Exam {
+    var topicsToReviewCount: Int {
+        topics.filter { !$0.check }.count
+    }
+
+    var reviewedTopicsCount: Int {
+        topics.filter { $0.check }.count
+    }
 }
