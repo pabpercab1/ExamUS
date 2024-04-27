@@ -67,5 +67,9 @@ Click the play button in Xcode to build and run the app on your iOS device. Xcod
 
 Once the app is installed, you can find it on your device's home screen. Tap on the app icon to launch ExamUS.
 
+## Problems encountered
+
+For solutions to common problems, visit the [ExamUS FAQ](https://github.com/pabpercab1/ExamUS/wiki/FAQ) page in the repository's Wiki.
+
 ## License
   - MIT
