@@ -10,6 +10,11 @@ import SwiftData
 
 @main
 struct ExamUSApp: App {
+    
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

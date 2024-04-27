@@ -14,6 +14,7 @@ struct EditExamView: View {
     @Query(sort: [SortDescriptor(\Course.name)]) var courses: [Course]
     
     @State private var newTopic = ""
+    @State private var newTopicDescription = ""
     @State private var selectedTopicToDelete: Topic?
     
     
@@ -53,25 +54,55 @@ struct EditExamView: View {
                 }
             }
             Section("\(exam.topics.count) Topics"){
+                    EditButton()
                 ForEach(exam.topics.sorted(by: { $0.number < $1.number })) { topic in
-                    HStack {
-                        Text(topic.name)
-                        Spacer()
-                        Button(action: { showAlert(for: topic) }) {
-                            Image(systemName: "trash")
-                                .accentColor(.red)
+                    VStack{
+                        HStack {
+                            if (topic.check){
+                                Button(){
+                                    topic.check = false
+                                } label: {
+                                    Image(systemName: "checkmark.circle.fill")
+                                }
+                            } else {
+                                Button(){
+                                    topic.check = true
+                                } label: {
+                                    Image(systemName: "circle")
+                                }
+                            }
+                            Text(topic.name)
                         }
                     }
                 }
                 .onDelete(perform: deleteTopicQuick)
-                HStack{
-                    TextField("Add topic in \(exam.name)", text: $newTopic)
-                        .onSubmit {
-                            addTopic()
-                        }
-                    Button(action: addTopic) {
+                .onMove { sourceIndices, destinationIndex in
+                    guard destinationIndex < exam.topics.count else { return }
+                    guard let sourceIndex = sourceIndices.first else { return }
+                    guard sourceIndex != destinationIndex else { return }
+                    var updatedTopics = exam.topics
+                    let movedTopic = updatedTopics.remove(at: sourceIndex)
+
+                    if destinationIndex < sourceIndex {
+                        updatedTopics.insert(movedTopic, at: destinationIndex)
+                    } else {
+                        updatedTopics.insert(movedTopic, at: destinationIndex - 1)
+                    }
+                    for (index, _) in updatedTopics.enumerated() {
+                        updatedTopics[index].number = index
+                    }
+                    exam.topics = updatedTopics
+                }
+                VStack{
+                    HStack{
+                        TextField("Add topic in \(exam.name)", text: $newTopic)
+                            .onSubmit {
+                                addTopic()
+                            }
+                        Button(action: addTopic) {
                             Image(systemName: "plus")
                         }
+                    }
                 }
             }
             .alert(item: $selectedTopicToDelete) { topic in
@@ -92,9 +123,10 @@ struct EditExamView: View {
         guard !newTopic.isEmpty else { return }
         
         withAnimation {
-            let topic = Topic(name: newTopic, number: exam.topics.count, details: "")
+            let topic = Topic(name: newTopic, number: exam.topics.count, details: newTopicDescription)
             exam.topics.append(topic)
             newTopic = ""
+            newTopicDescription = ""
         }
     }
     private func showAlert(for topic: Topic) {
@@ -116,7 +148,7 @@ struct EditExamView: View {
     do{
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Exam.self, configurations: config)
-        let example = Exam(name: "Example", details: "Detail example", course: Course(name: "Example", details: "Example", professor: "Example"))
+        let example = Exam(name: "Example", details: "Detail example", course: Course(name: "Example", details: "Example"))
         
         return EditExamView(exam: example)
             .modelContainer(container)

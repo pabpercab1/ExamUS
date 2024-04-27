@@ -12,13 +12,21 @@ struct ContentView: View {
     
     @State private var examPath = [Exam]()
     @State private var coursePath = [Course]()
+    @State private var professorPath = [Professor]()
     @State private var sortOrder = SortDescriptor(\Exam.date)
     @State private var sortOrderCourse = SortDescriptor(\Course.year)
+    @State private var sortOrderProfessor = SortDescriptor(\Professor.name)
     @State private var searchText = ""
     @State private var searchTextCourse = ""
+    @State private var searchTextProfessor = ""
     
     @State private var showingAlert = false
     @State private var isShowingDetailView = false
+    
+    @Query(sort: [SortDescriptor(\Exam.date),
+                  SortDescriptor(\Exam.course?.name)]) var exams: [Exam]
+    @Query(sort: [SortDescriptor(\Course.year), SortDescriptor(\Course.name)]) var courses: [Course]
+    @Query(sort: [SortDescriptor(\Professor.name), SortDescriptor(\Professor.email)]) var professors: [Professor]
     
     var body: some View {
             TabView {
@@ -39,12 +47,12 @@ struct ContentView: View {
                                 }
                         }
                         .alert(isPresented: $showingAlert) {
-                                buildAlert()
-                                }
+                            buildAlert()
+                        }
                         .searchable(text: $searchText)
                         .toolbar {
                             ToolbarItemGroup(placement: .navigationBarTrailing) {
-//                                Button("Add sample", action: addSamples)
+                                //                                Button("Add sample", action: addSamples)
                                 Button(action: addExam) {
                                     Image(systemName: "plus.circle.fill")
                                 }
@@ -56,6 +64,9 @@ struct ContentView: View {
                                     .pickerStyle(.inline)
                                 } label: {
                                     Label("Sort", systemImage: "arrow.up.arrow.down.circle")
+                                }
+                                if (!exams.isEmpty){
+                                    EditButton()
                                 }
                             }
                         }
@@ -72,9 +83,14 @@ struct ContentView: View {
                             EditCourseView(course: course)
                         }
                         .toolbar(){
-//                            Button("Add sample", action: addSamplesCourses)
-                            Button(action: addCourse){
-                                Image(systemName: "plus.circle.fill")
+                            ToolbarItemGroup(placement: .topBarTrailing) {
+                                //                            Button("Add sample", action: addSamplesCourses)
+                                Button(action: addCourse){
+                                    Image(systemName: "plus.circle.fill")
+                                }
+                                if (!courses.isEmpty){
+                                    EditButton()
+                                }
                             }
                         }
                         .searchable(text: $searchTextCourse)
@@ -82,32 +98,61 @@ struct ContentView: View {
                 .tabItem {
                     Label("Courses", systemImage: "book")
                 }
+                
+                //Thrid tab
+                NavigationStack(path: $professorPath) {
+                    ProfessorListView(sort: sortOrderProfessor, search: searchTextProfessor)
+                        .navigationTitle("Professors")
+                        .navigationDestination(for: Professor.self) { profe in
+                            EditProfessorView(profe: profe)
+                        }
+                        .toolbar(){
+                            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                                //                            Button("Add sample", action: addSamplesCourses)
+                                Button(action: addProfessor){
+                                    Image(systemName: "plus.circle.fill")
+                                }
+                                if (!professors.isEmpty){
+                                    EditButton()
+                                }
+                            }
+                        }
+                        .searchable(text: $searchTextProfessor)
+                }
+                .tabItem {
+                    Label("Professors", systemImage: "person.3.fill")
+                }
             }
         }
     func addExam(){
-        let exam = Exam(name:"New exam")
+        let exam = Exam(name:"Click here to add a exam title")
         modelContext.insert(exam)
         examPath = [exam]
     }
     func addCourse(){
-        let course = Course(name:"New course")
+        let course = Course(name:"Click here to add a course name")
         modelContext.insert(course)
         coursePath = [course]
     }
+    func addProfessor(){
+        let profe = Professor(name: "Click here to add the professor name")
+        modelContext.insert(profe)
+        professorPath = [profe]
+    }
     
     func addSamples(){
-        let cbd = Exam(name: "Primer parcial", course: Course(name: "CBD", details: "String", professor: "Paula"))
-        let ispp = Exam(name: "Presentación", course: Course(name: "ISPP", details: "Detail", professor: "Ramon"))
-        let dp = Exam(name: "Examen final", course: Course(name: "DP1", details: "Thst", professor: "Raul"))
+        let cbd = Exam(name: "Primer parcial", course: Course(name: "CBD", details: "String"))
+        let ispp = Exam(name: "Presentación", course: Course(name: "ISPP", details: "Detail"))
+        let dp = Exam(name: "Examen final", course: Course(name: "DP1", details: "Thst"))
         
         modelContext.insert(cbd)
         modelContext.insert(ispp)
         modelContext.insert(dp)
     }
     func addSamplesCourses(){
-        let cbd = Course(name: "CBD", details: "String", professor: "Paula")
-        let ispp = Course(name: "ISPP", details: "Detail", professor: "Ramon")
-        let dp = Course(name: "DP1", details: "Thst", professor: "Raul")
+        let cbd = Course(name: "CBD", details: "String")
+        let ispp = Course(name: "ISPP", details: "Detail")
+        let dp = Course(name: "DP1", details: "Thst")
         
         modelContext.insert(cbd)
         modelContext.insert(ispp)
@@ -131,6 +176,7 @@ struct ContentView: View {
             )
     }
 }
+
 
 #Preview {
     ContentView()

@@ -11,12 +11,18 @@
 		6E0A863A2BB5D26000C92ACE /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0A86392BB5D26000C92ACE /* Topic.swift */; };
 		6E0A863C2BB5E64F00C92ACE /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0A863B2BB5E64F00C92ACE /* Course.swift */; };
 		6E0A863F2BB5E98B00C92ACE /* CourseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0A863E2BB5E98B00C92ACE /* CourseListView.swift */; };
+		6E5D85342BCDB2110084B6AE /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D85332BCDB2110084B6AE /* Professor.swift */; };
+		6E5D85392BCDBF7C0084B6AE /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E5D85382BCDBF7C0084B6AE /* Launch.storyboard */; };
+		6E5D853D2BCDC8200084B6AE /* ProfessorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D853C2BCDC8200084B6AE /* ProfessorListView.swift */; };
+		6E5D85422BCDCCCF0084B6AE /* EditProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D85412BCDCCCF0084B6AE /* EditProfessorView.swift */; };
+		6E5D85442BCED6AE0084B6AE /* imageicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E5D85432BCED6AE0084B6AE /* imageicon.png */; };
 		6E8E2FBC2BB44A90009A6B71 /* ExamUSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E2FBB2BB44A90009A6B71 /* ExamUSApp.swift */; };
 		6E8E2FBE2BB44A90009A6B71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E2FBD2BB44A90009A6B71 /* ContentView.swift */; };
 		6E8E2FC02BB44A93009A6B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E2FBF2BB44A93009A6B71 /* Assets.xcassets */; };
 		6E8E2FC42BB44A93009A6B71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E2FC32BB44A93009A6B71 /* Preview Assets.xcassets */; };
 		6E8E2FCD2BB44FAD009A6B71 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8E2FCC2BB44FAD009A6B71 /* Exam.swift */; };
 		6E9402222BB45A7500CBBC58 /* EditExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9402212BB45A7500CBBC58 /* EditExamView.swift */; };
+		6EB8FEB52BCED75D00F9A22C /* logo-ETSII-US-Horizontal-Color.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB8FEB42BCED75D00F9A22C /* logo-ETSII-US-Horizontal-Color.png */; };
 		6EC9D41C2BB632B6000FD54E /* EditCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9D41B2BB632B6000FD54E /* EditCourseView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +31,11 @@
 		6E0A86392BB5D26000C92ACE /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		6E0A863B2BB5E64F00C92ACE /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		6E0A863E2BB5E98B00C92ACE /* CourseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListView.swift; sourceTree = "<group>"; };
+		6E5D85332BCDB2110084B6AE /* Professor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Professor.swift; sourceTree = "<group>"; };
+		6E5D85382BCDBF7C0084B6AE /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		6E5D853C2BCDC8200084B6AE /* ProfessorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorListView.swift; sourceTree = "<group>"; };
+		6E5D85412BCDCCCF0084B6AE /* EditProfessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfessorView.swift; sourceTree = "<group>"; };
+		6E5D85432BCED6AE0084B6AE /* imageicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageicon.png; sourceTree = "<group>"; };
 		6E8E2FB82BB44A90009A6B71 /* ExamUS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamUS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8E2FBB2BB44A90009A6B71 /* ExamUSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamUSApp.swift; sourceTree = "<group>"; };
 		6E8E2FBD2BB44A90009A6B71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +44,7 @@
 		6E8E2FC32BB44A93009A6B71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E8E2FCC2BB44FAD009A6B71 /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
 		6E9402212BB45A7500CBBC58 /* EditExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExamView.swift; sourceTree = "<group>"; };
+		6EB8FEB42BCED75D00F9A22C /* logo-ETSII-US-Horizontal-Color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ETSII-US-Horizontal-Color.png"; sourceTree = "<group>"; };
 		6EC9D41B2BB632B6000FD54E /* EditCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,13 +65,52 @@
 				6E0A86392BB5D26000C92ACE /* Topic.swift */,
 				6E0A863B2BB5E64F00C92ACE /* Course.swift */,
 				6E8E2FCC2BB44FAD009A6B71 /* Exam.swift */,
+				6E5D85332BCDB2110084B6AE /* Professor.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6E5D85372BCDBF680084B6AE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6EB8FEB42BCED75D00F9A22C /* logo-ETSII-US-Horizontal-Color.png */,
+				6E5D85432BCED6AE0084B6AE /* imageicon.png */,
+				6E5D85382BCDBF7C0084B6AE /* Launch.storyboard */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6E5D853E2BCDCC800084B6AE /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				6E0A86372BB5A07D00C92ACE /* ExamListView.swift */,
+				6E9402212BB45A7500CBBC58 /* EditExamView.swift */,
+			);
+			path = Exam;
+			sourceTree = "<group>";
+		};
+		6E5D853F2BCDCC880084B6AE /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				6E0A863E2BB5E98B00C92ACE /* CourseListView.swift */,
+				6EC9D41B2BB632B6000FD54E /* EditCourseView.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		6E5D85402BCDCC8E0084B6AE /* Professor */ = {
+			isa = PBXGroup;
+			children = (
+				6E5D853C2BCDC8200084B6AE /* ProfessorListView.swift */,
+				6E5D85412BCDCCCF0084B6AE /* EditProfessorView.swift */,
+			);
+			path = Professor;
 			sourceTree = "<group>";
 		};
 		6E8E2FAF2BB44A90009A6B71 = {
 			isa = PBXGroup;
 			children = (
+				6E5D85372BCDBF680084B6AE /* Extensions */,
 				6E8E2FBA2BB44A90009A6B71 /* ExamUS */,
 				6E8E2FB92BB44A90009A6B71 /* Products */,
 			);
@@ -78,10 +129,9 @@
 			children = (
 				6E8E2FBB2BB44A90009A6B71 /* ExamUSApp.swift */,
 				6E8E2FBD2BB44A90009A6B71 /* ContentView.swift */,
-				6E0A86372BB5A07D00C92ACE /* ExamListView.swift */,
-				6E9402212BB45A7500CBBC58 /* EditExamView.swift */,
-				6E0A863E2BB5E98B00C92ACE /* CourseListView.swift */,
-				6EC9D41B2BB632B6000FD54E /* EditCourseView.swift */,
+				6E5D853E2BCDCC800084B6AE /* Exam */,
+				6E5D853F2BCDCC880084B6AE /* Course */,
+				6E5D85402BCDCC8E0084B6AE /* Professor */,
 				6E0A863D2BB5E78400C92ACE /* Models */,
 				6E8E2FBF2BB44A93009A6B71 /* Assets.xcassets */,
 				6E8E2FC12BB44A93009A6B71 /* ExamUS.entitlements */,
@@ -156,8 +206,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E5D85442BCED6AE0084B6AE /* imageicon.png in Resources */,
+				6EB8FEB52BCED75D00F9A22C /* logo-ETSII-US-Horizontal-Color.png in Resources */,
 				6E8E2FC42BB44A93009A6B71 /* Preview Assets.xcassets in Resources */,
 				6E8E2FC02BB44A93009A6B71 /* Assets.xcassets in Resources */,
+				6E5D85392BCDBF7C0084B6AE /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,12 +223,15 @@
 			files = (
 				6E8E2FBE2BB44A90009A6B71 /* ContentView.swift in Sources */,
 				6EC9D41C2BB632B6000FD54E /* EditCourseView.swift in Sources */,
+				6E5D85422BCDCCCF0084B6AE /* EditProfessorView.swift in Sources */,
 				6E0A863C2BB5E64F00C92ACE /* Course.swift in Sources */,
 				6E0A863A2BB5D26000C92ACE /* Topic.swift in Sources */,
 				6E9402222BB45A7500CBBC58 /* EditExamView.swift in Sources */,
 				6E0A86382BB5A07D00C92ACE /* ExamListView.swift in Sources */,
 				6E8E2FBC2BB44A90009A6B71 /* ExamUSApp.swift in Sources */,
+				6E5D85342BCDB2110084B6AE /* Professor.swift in Sources */,
 				6E8E2FCD2BB44FAD009A6B71 /* Exam.swift in Sources */,
+				6E5D853D2BCDC8200084B6AE /* ProfessorListView.swift in Sources */,
 				6E0A863F2BB5E98B00C92ACE /* CourseListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -290,6 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -310,12 +368,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ExamUS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -328,7 +390,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cdbauroraypablo.ExamUS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,12 +412,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ExamUS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -366,7 +434,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cdbauroraypablo.ExamUS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
