@@ -20,7 +20,7 @@ Exam management system using SwiftData and SwiftUI.
 
   - SwiftData
   - SwiftUI
-  -  Storyboards
+  - UIKit (Storyboard)
   - CloudKit
 
 ## Clone, Compile and Run
