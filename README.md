@@ -19,7 +19,7 @@ Exam management system using SwiftData and SwiftUI.
 
   - Runs on iOS 17.4 or higher
   - Runs on iPadOS 17.4 or higher
-  - Run on macOS 14.4 or higher _(a a Made for iPad app)_
+  - Run on macOS 14.4 or higher _(Designed for iPad)_
 
 ## Concepts
 
