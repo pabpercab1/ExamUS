@@ -55,6 +55,8 @@ In Xcode, select the `ExamUS` project in the project navigator. Then, select the
 
 Connect your iOS device to your Mac using a USB cable.
 
+<img width="1440" alt="imagen" src="https://github.com/pabpercab1/ExamUS/assets/72883992/920379ac-d7d6-4821-b481-865ffe7b2b1b">
+
 5. **Select Your Device:**
 
 In Xcode, select your connected iOS device as the build destination. It should appear in the device dropdown menu located near the play and stop buttons.
