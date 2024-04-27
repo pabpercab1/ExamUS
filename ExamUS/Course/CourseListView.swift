@@ -32,8 +32,22 @@ struct CourseListView: View {
                                 Text(course.name)
                                     .font(.headline)
                                 Text(course.year.formatted().replacingOccurrences(of: ".", with: ""))
-                                //Text(course.professor)
-                            }
+                                    if let professors = course.professors {
+                                        let professorsCount = professors.count
+                                        if professorsCount > 0 {
+                                            Text(professors[0].name)
+                                                .foregroundStyle(.gray)
+                                        }
+                                        if professorsCount > 1 {
+                                            Text(professors[1].name)
+                                                .foregroundStyle(.gray)
+                                        }
+                                        if professorsCount > 2 {
+                                            Text("...")
+                                                .foregroundStyle(.gray)
+                                        }
+                                    }
+                                }
                             Spacer()
                             Image(systemName: "circle.fill")
                                 .foregroundStyle(convertColor(color: course.color))
