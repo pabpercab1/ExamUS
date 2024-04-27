@@ -1,5 +1,5 @@
 # ExamUS
-<img src="https://github.com/pabpercab1/ExamUS/assets/72883992/0e37a60f-a37a-49f2-ae9a-8769edcdf1fd" alt="ExamUS Logo" height="100"/> &nbsp; &nbsp; &nbsp; <img src="https://raw.githubusercontent.com/pabpercab1/ExamUS/main/Extensions/logo-ETSII-US-Horizontal-Color.png" alt="US Logo" height="90"/>
+<img src="https://github.com/pabpercab1/ExamUS/assets/72883992/595af1ec-213e-4fe8-8d46-d54711278cc2" alt="ExamUS Logo" height="100"/> &nbsp; &nbsp; &nbsp; <img src="https://raw.githubusercontent.com/pabpercab1/ExamUS/main/Extensions/logo-ETSII-US-Horizontal-Color.png" alt="US Logo" height="90"/>
 
 Exam management system using SwiftData and SwiftUI.
 
