@@ -31,6 +31,7 @@
 		6E0A86392BB5D26000C92ACE /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		6E0A863B2BB5E64F00C92ACE /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		6E0A863E2BB5E98B00C92ACE /* CourseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListView.swift; sourceTree = "<group>"; };
+		6E35C5F52BDD1BA400EA3FE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6E5D85332BCDB2110084B6AE /* Professor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Professor.swift; sourceTree = "<group>"; };
 		6E5D85382BCDBF7C0084B6AE /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		6E5D853C2BCDC8200084B6AE /* ProfessorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorListView.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		6E8E2FBA2BB44A90009A6B71 /* ExamUS */ = {
 			isa = PBXGroup;
 			children = (
+				6E35C5F52BDD1BA400EA3FE8 /* Info.plist */,
 				6E8E2FBB2BB44A90009A6B71 /* ExamUSApp.swift */,
 				6E8E2FBD2BB44A90009A6B71 /* ContentView.swift */,
 				6E5D853E2BCDCC800084B6AE /* Exam */,
@@ -368,6 +370,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExamUS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ExamUS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -412,6 +415,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExamUS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ExamUS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
