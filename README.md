@@ -1,7 +1,7 @@
 # ExamUS
 <img src="https://github.com/pabpercab1/ExamUS/assets/72883992/595af1ec-213e-4fe8-8d46-d54711278cc2" alt="ExamUS Logo" height="100"/> &nbsp; &nbsp; &nbsp; <img src="https://raw.githubusercontent.com/pabpercab1/ExamUS/main/Extensions/logo-ETSII-US-Horizontal-Color.png" alt="US Logo" height="90"/>
 
-Exam management system using SwiftData and SwiftUI.
+Exam management system using SwiftData and SwiftUI. For a complete manual of how to use the app, you can go to the [ExamUS Wiki](https://github.com/pabpercab1/ExamUS/wiki/home)
 
 ## Features
   - Create and assign Professors
